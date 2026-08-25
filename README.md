@@ -10,7 +10,9 @@ The website and résumé intentionally have separate responsibilities:
 - The sibling `Resume` repository owns `content/career.yaml`, résumé generation, career-document validation, and the canonical public résumé artifacts.
 - `public/andy-kumeda-resume.pdf` is a checked-in public snapshot. Do not edit it manually.
 
-The former `resume-site-hub` repository still supplies the current production site. Keep it intact until Crossroads is deployed and verified at `andykumeda.com`. After cutover, mark it historical and archive it on GitHub rather than deleting it.
+The former `resume-site-hub` repository is retained as a historical GitHub archive. The résumé build remains maintained separately in `../Resume`.
+
+This repository is intentionally public: it contains the website source and safe project summaries, not private repository contents or credentials.
 
 ## Local development
 
@@ -47,4 +49,4 @@ npm run lint
 npm run build
 ```
 
-No production deployment workflow has been assigned to this repository yet. Do not update `andykumeda.com` until the deployment and rollback path has been reviewed.
+See [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) for the production domains, Nginx/TLS setup, source boundaries, and rollback record.
