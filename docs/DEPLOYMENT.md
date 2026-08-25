@@ -32,7 +32,7 @@ It covers all six apex names and renews through the existing Certbot scheduler.
 
 - This public repository owns the site layout, copy, assets, and deployment configuration.
 - `/Users/andy/Dev/Resume` remains the private résumé source and build pipeline.
-- Run `npm run resume:sync` here to refresh the public résumé PDF snapshot from the Resume repo.
+- Run `npm run resume:sync` here to refresh the public résumé PDF, DOCX, and Markdown snapshots from the Resume repo.
 - The old `andykumeda/resume-site-hub` repository is archived for history; its résumé build is not the website source of truth.
 
 ## Rollback

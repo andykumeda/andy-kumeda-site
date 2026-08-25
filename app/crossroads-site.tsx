@@ -1,5 +1,8 @@
 import Image from 'next/image';
-import { experienceOverview, interestLinks, navLinks, projects, runningFacts, workFacts } from './site-data';
+import { experienceOverview, interestLinks, projects, runningFacts, workFacts } from './site-data';
+import { BackToTop } from './back-to-top';
+import { ResumeMenu } from './resume-menu';
+import { SiteMenu } from './site-menu';
 
 function ExternalArrow() { return <span aria-hidden="true">↗</span>; }
 
@@ -7,8 +10,7 @@ function Header() {
   return (
     <header className="site-header">
       <a className="wordmark" href="#top" aria-label="Andy Kumeda home"><Image src="/ak-logo-orange.png" alt="" width={34} height={34} priority /><strong>Andy Kumeda</strong></a>
-      <nav aria-label="Main navigation">{navLinks.map((link) => <a href={link.href} key={link.href}>{link.label}</a>)}</nav>
-      <a className="resume-link" href="/andy-kumeda-resume.pdf" target="_blank">Résumé <ExternalArrow /></a>
+      <SiteMenu />
     </header>
   );
 }
@@ -62,7 +64,7 @@ export function Crossroads() {
           <p className="eyebrow">In the systems</p><h1>Andy<br />Kumeda</h1>
           <p className="cross-deck">Infrastructure engineer, independent builder, ultrarunner, photographer, and music instigator.</p>
           <p className="cross-body">I like ambitious problems that reward patience: a long mountain course, a complicated network, or a product that has to work for real people.</p>
-          <div className="cross-hero-links"><a href="#work">Explore the work</a><a href="/andy-kumeda-resume.pdf" target="_blank">Open résumé <ExternalArrow /></a></div>
+          <div className="cross-hero-links"><a href="#work">Explore the work</a><ResumeMenu label="Open résumé" /></div>
         </div>
         <span className="cross-vertical">Los Angeles · Runner / Builder / Operator</span>
       </section>
@@ -78,7 +80,7 @@ export function Crossroads() {
       </section>
       <section className="cross-work" id="work">
         <div className="section-number">02 / Work</div>
-        <div className="cross-work-heading"><p className="eyebrow">Infrastructure, made operable</p><h2>Design the system. Automate the repeatable. Keep judgment in the loop.</h2><a className="primary-button" href="/andy-kumeda-resume.pdf" target="_blank">View recruiter résumé <ExternalArrow /></a></div>
+        <div className="cross-work-heading"><p className="eyebrow">Infrastructure, made operable</p><h2>Design the system. Automate the repeatable. Keep judgment in the loop.</h2><ResumeMenu label="Résumé" /></div>
         <div className="experience-overview">
           <p className="experience-intro">I’ve worked as an engineer, architect, consultant, IT director, and operations leader. The titles changed, but the work usually came back to the same thing: make complex systems easier to understand, run, and hand off.</p>
           <div className="experience-groups">
@@ -91,6 +93,7 @@ export function Crossroads() {
       <section className="cross-projects" id="projects"><div className="section-heading-row"><div><span>03 / Selected projects</span><h2>Things made to be used.</h2></div><a href="https://github.com/andykumeda" target="_blank" rel="noreferrer">GitHub profile <ExternalArrow /></a></div><ProjectCards /></section>
       <section className="cross-interests" id="interests"><div className="section-heading-row"><div><span>04 / Away from the résumé</span><h2>More ways into the story.</h2></div></div><Interests /></section>
       <Footer />
+      <BackToTop />
     </main>
   );
 }

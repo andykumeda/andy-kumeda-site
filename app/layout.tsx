@@ -7,20 +7,23 @@ const mono = Geist_Mono({ variable: '--font-mono', subsets: ['latin'] });
 const editorial = Instrument_Serif({ variable: '--font-editorial', subsets: ['latin'], weight: '400' });
 
 export const metadata: Metadata = {
-  title: 'Andy Kumeda — Runner, Builder, Infrastructure Engineer',
+  title: 'Andy Kumeda — Runner, Builder, Engineer',
   description: 'The personal website of Andy Kumeda: endurance running, independent software, infrastructure automation, photography, and music.',
   metadataBase: new URL('https://andykumeda.com'),
+  icons: {
+    icon: '/ak-logo-orange.png',
+  },
   openGraph: {
-    title: 'Andy Kumeda — Runner, Builder, Infrastructure Engineer',
+    title: 'Andy Kumeda — Runner, Builder, Engineer',
     description: 'Endurance running, independent software, infrastructure automation, photography, and music.',
     url: 'https://andykumeda.com',
     siteName: 'Andy Kumeda',
     type: 'website',
-    images: [{ url: '/og.png', width: 1731, height: 909, alt: 'Andy Kumeda — Runner, Builder, Infrastructure Engineer' }],
+    images: [{ url: '/og.png', width: 1731, height: 909, alt: 'Andy Kumeda — Runner, Builder, Engineer' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Andy Kumeda — Runner, Builder, Infrastructure Engineer',
+    title: 'Andy Kumeda — Runner, Builder, Engineer',
     description: 'Endurance running, independent software, infrastructure automation, photography, and music.',
     images: ['/og.png'],
   },
