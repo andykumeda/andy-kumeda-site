@@ -38,8 +38,8 @@ export const defaultSiteContent = {
       "Principal Consultant",
       "IT Director",
       "Executive Director",
-      "",
-      "Network Operations Manager"
+      "Network Operations Manager",
+      ""
     ],
     "organizations": [
       "World Wide Technology",
