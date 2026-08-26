@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: 'The personal website of Andy Kumeda: endurance running, independent software, infrastructure automation, photography, and music.',
   metadataBase: new URL('https://andykumeda.com'),
   icons: {
-    icon: '/ak-logo-orange.png',
+    icon: '/ak-logo-orange-round.png',
   },
   openGraph: {
     title: 'Andy Kumeda — Runner, Builder, Engineer',

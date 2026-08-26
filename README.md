@@ -23,6 +23,10 @@ npm run dev
 
 The development server prints the local review URL.
 
+The copy editor is intentionally local-only. While the site is running on the Mini, open `/editor`, edit the copy, and export the JSON draft or use the guarded local publish button. Production renders `/editor` as unavailable and does not link to it.
+
+To enable the local publish button, set `SITE_PUBLISH_TOKEN` in the Mini-only `.env.local` file, restart the dev server, and enter the same token in the editor. The button validates the content, runs lint/build, commits only the site files, pushes the current branch to GitHub, and deploys `dist/client/` to the documented production host.
+
 ## Update the résumé
 
 First regenerate the public résumé in the sibling repository, then import its stable public aliases:

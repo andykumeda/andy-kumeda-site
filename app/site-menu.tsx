@@ -1,9 +1,11 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { navLinks } from './site-data';
+import { useSiteContent } from './site-content-store';
 
 export function SiteMenu() {
+  const content = useSiteContent();
+  const navLinks = [{ href: '#running', label: content.nav.running }, { href: '#work', label: content.nav.work }, { href: '#projects', label: content.nav.projects }, { href: '#interests', label: content.nav.interests }];
   const menuRef = useRef<HTMLDetailsElement>(null);
 
   useEffect(() => {
