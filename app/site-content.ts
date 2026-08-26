@@ -8,21 +8,21 @@ export const defaultSiteContent = {
   "hero": {
     "photoLabel": "On the trail",
     "photoCopy": "75 x 100-mile finishes and a habit of staying curious deep into the hard part.",
-    "photoLink": "Meet the runner ↓",
+    "photoLink": "Meet Andy ↓",
     "eyebrow": "In the systems",
     "name": "Andy\nKumeda",
     "deck": "Infrastructure engineer, independent builder, ultrarunner, photographer, and music instigator.",
     "body": "I like ambitious problems that reward patience: a long mountain course, a complicated network, or a product that has to work for real people.",
     "workLink": "Explore the work",
     "resumeLink": "Résumé",
-    "vertical": "Los Angeles · Runner / Builder / Operator"
+    "vertical": "Sierra Madre · Runner / Builder / Operator"
   },
   "running": {
     "eyebrow": "Endurance is a practice",
     "heading": "The finish line is rarely the interesting part.",
     "bodyOne": "Andy’s running life started with the 1998 Los Angeles Marathon and grew into decades of trail races, 100-milers, volunteering, pacing, and route study.",
     "bodyTwo": "The same curiosity now powers DFIU and RouteSmith—software shaped by actual race-day questions, not an abstract fitness brief.",
-    "link": "Explore race history at andyk.run"
+    "link": "Explore races - past and future"
   },
   "work": {
     "eyebrow": "Infrastructure, made operable",
@@ -33,12 +33,12 @@ export const defaultSiteContent = {
     "organizationsLabel": "Places I’ve worked",
     "note": "The résumé has the full chronology, technical scope, and project details.",
     "roles": [
-      "Senior Network Engineer",
       "Network Architect",
-      "Principal Consultant",
+      "Senior Network Engineer",
+      "Executive Director\n",
       "IT Director",
-      "Executive Director",
       "Network Operations Manager",
+      "",
       ""
     ],
     "organizations": [
@@ -46,8 +46,8 @@ export const defaultSiteContent = {
       "Delta9 Tech",
       "Yellowpages.com",
       "AT&T",
-      "CureSearch",
-      "Yahoo, Overture, and GoTo.com"
+      "Yahoo, Overture, and GoTo.com\n",
+      ""
     ]
   },
   "stats": {
@@ -75,7 +75,7 @@ export const defaultSiteContent = {
         "label": "years in infrastructure"
       },
       {
-        "value": "CCIE #3406",
+        "value": "CCIE 3406",
         "label": "Lifetime Emeritus"
       },
       {
@@ -172,7 +172,7 @@ export const defaultSiteContent = {
     "interestsHeading": "More ways into the story."
   },
   "footer": {
-    "location": "Los Angeles, California",
+    "location": "Sierra Madre, California",
     "statement": "Built around the whole person: endurance, systems, music, images, and useful tools.",
     "email": "Email",
     "linkedin": "LinkedIn",
