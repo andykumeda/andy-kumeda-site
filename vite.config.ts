@@ -72,7 +72,7 @@ function localPublishPlugin() {
           await run('git', ['commit', '-m', 'Publish site updates from local editor']);
           const branch = await run('git', ['branch', '--show-current']);
           await run('git', ['push', 'origin', branch]);
-          await run('rsync', ['-avz', '--delete', '--chmod=Du=rwx,Dg=rx,Do=rx,Fu=rw,Fg=r,Fo=r', 'dist/client/', `${target.host}:${target.directory}/`]);
+          await run('rsync', ['-avz', '--no-owner', '--no-group', '--delete', '--chmod=Du=rwx,Dg=rx,Do=rx,Fu=rw,Fg=r,Fo=r', 'dist/client/', `${target.host}:${target.directory}/`]);
           await run('ssh', [target.host, 'sudo nginx -t && sudo systemctl reload nginx']);
           response.statusCode = 200;
           response.setHeader('Content-Type', 'application/json');
