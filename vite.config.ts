@@ -23,7 +23,7 @@ const publishFiles = [
 
 function sameShape(value: unknown, template: unknown, depth = 0): boolean {
   if (depth > 12 || typeof value !== typeof template) return false;
-  if (typeof template === 'string') return value.length <= 10000;
+  if (typeof template === 'string') return typeof value === 'string' && value.length <= 10000;
   if (template === null || value === null) return template === value;
   if (Array.isArray(template)) return Array.isArray(value) && value.length <= 100 && value.every((item, index) => sameShape(item, template[index % Math.max(template.length, 1)], depth + 1));
   if (typeof template === 'object') {

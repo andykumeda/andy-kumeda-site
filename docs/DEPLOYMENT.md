@@ -8,7 +8,7 @@ The existing `/var/www/andy-kumeda-site` was copied to `/var/www/andy-kumeda-pre
 
 The local editor formerly hardcoded the obsolete `web` SSH host. This branch requires explicit `SITE_PUBLISH_HOST` and `SITE_PUBLISH_DIRECTORY` settings and validates them before the editor writes or publishes content. The suggested post-cutover values are `prod` and `/var/www/andy-kumeda-site`; both must be set in the Mini-only `.env.local` and tested against a safe destination before relying on the button. The branch is not deployed and existing local editor sessions still run their old code until updated/restarted.
 
-Branch checks: the publish-target unit test, `npm run lint`, and `npm run build` passed. The build's temporary loopback prerender listener exited when the build completed. A separate `npx tsc --noEmit` check reports the pre-existing `vite.config.ts` `sameShape` unknown-value narrowing error; this branch does not change that line. A real editor publish remains untested.
+Branch checks: the publish-target and content-shape tests, `npx tsc --noEmit --incremental false`, `npm run lint`, and `npm run build` passed. The build's temporary loopback prerender listener exited when the build completed. The prior pre-existing `sameShape` TypeScript error was corrected with an explicit string type guard; focused tests cover string bounds and nested values. A real editor publish remains untested.
 
 ### Reviewed cutover and rollback plan — pending execution
 
