@@ -18,10 +18,10 @@ This repository is intentionally public: it contains the website source and safe
 
 ```bash
 npm install
-npm run dev
+npm run dev -- --hostname 127.0.0.1
 ```
 
-The development server prints the local review URL.
+The development server prints the local review URL. The hostname flag binds it to loopback because the Vite configuration otherwise permits network access.
 
 The copy editor is intentionally local-only. While the site is running on the Mini, open `/editor`, edit the copy, and export the JSON draft or use the guarded local publish button. Production renders `/editor` as unavailable and does not link to it.
 
