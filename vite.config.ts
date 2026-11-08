@@ -8,6 +8,7 @@ import vinext from 'vinext';
 import { defineConfig, loadEnv, type ViteDevServer } from 'vite';
 import hostingConfig from './.openai/hosting.json';
 import { defaultSiteContent } from './app/site-content';
+import { publishTarget } from './scripts/publish-target.mjs';
 
 const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
   '00000000-0000-4000-8000-000000000000';
@@ -49,6 +50,7 @@ function localPublishPlugin() {
           return;
         }
         try {
+          const target = publishTarget(process.env.SITE_PUBLISH_HOST, process.env.SITE_PUBLISH_DIRECTORY);
           let body = '';
           for await (const chunk of request) {
             body += chunk;
@@ -70,8 +72,8 @@ function localPublishPlugin() {
           await run('git', ['commit', '-m', 'Publish site updates from local editor']);
           const branch = await run('git', ['branch', '--show-current']);
           await run('git', ['push', 'origin', branch]);
-          await run('rsync', ['-avz', '--delete', '--chmod=Du=rwx,Dg=rx,Do=rx,Fu=rw,Fg=r,Fo=r', 'dist/client/', 'web:/var/www/andy-kumeda-site/']);
-          await run('ssh', ['web', 'sudo nginx -t && sudo systemctl reload nginx']);
+          await run('rsync', ['-avz', '--delete', '--chmod=Du=rwx,Dg=rx,Do=rx,Fu=rw,Fg=r,Fo=r', 'dist/client/', `${target.host}:${target.directory}/`]);
+          await run('ssh', [target.host, 'sudo nginx -t && sudo systemctl reload nginx']);
           response.statusCode = 200;
           response.setHeader('Content-Type', 'application/json');
           response.end(JSON.stringify({ ok: true, branch }));
@@ -113,6 +115,8 @@ const localBindingConfig = {
 export default defineConfig(async ({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   process.env.SITE_PUBLISH_TOKEN ??= env.SITE_PUBLISH_TOKEN;
+  process.env.SITE_PUBLISH_HOST ??= env.SITE_PUBLISH_HOST;
+  process.env.SITE_PUBLISH_DIRECTORY ??= env.SITE_PUBLISH_DIRECTORY;
   // Keep Wrangler and Miniflare state project-local. These are non-secret tool
   // settings; application environment belongs in ignored `.env*` files.
   process.env.WRANGLER_WRITE_LOGS ??= 'false';
