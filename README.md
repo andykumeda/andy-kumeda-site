@@ -25,7 +25,7 @@ The development server prints the local review URL. The hostname flag binds it t
 
 The copy editor is intentionally local-only. While the site is running on the Mini, open `/editor`, edit the copy, and export the JSON draft or use the guarded local publish button. Production renders `/editor` as unavailable and does not link to it.
 
-To enable the local publish button, set `SITE_PUBLISH_TOKEN`, `SITE_PUBLISH_HOST`, and `SITE_PUBLISH_DIRECTORY` in the Mini-only `.env.local` file, restart the dev server, and enter the token in the editor. The host is an SSH alias and the directory must be a site directory under `/var/www`. The button validates the destination and content, runs lint/build, commits only the site files, pushes the current branch to GitHub, and deploys `dist/client/` to that explicit destination. After the planned prod cutover, the intended values are `SITE_PUBLISH_HOST=prod` and `SITE_PUBLISH_DIRECTORY=/var/www/andy-kumeda-site`; until then, do not publish to prod.
+To enable the local publish button, set `SITE_PUBLISH_TOKEN`, `SITE_PUBLISH_HOST`, and `SITE_PUBLISH_DIRECTORY` in the Mini-only `.env.local` file, restart the dev server, and enter the token in the editor. The host is an SSH alias and the directory must be a site directory under `/var/www`. The button validates the destination and content, runs lint/build, commits only the site files, pushes the current branch to GitHub, and deploys `dist/client/` to that explicit destination. The production settings are `SITE_PUBLISH_HOST=prod` and `SITE_PUBLISH_DIRECTORY=/var/www/andy-kumeda-site`; an actual editor publish has not yet been tested after migration.
 
 ## Update the résumé
 
