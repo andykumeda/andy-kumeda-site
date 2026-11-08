@@ -81,3 +81,5 @@ target `/var/www/andy-kumeda-site`, then run `sudo nginx -t && sudo systemctl re
 ## November 8 structured data
 
 The homepage includes a JSON-LD WebSite linked to a Person, based on the site's public identity and visible GitHub/LinkedIn links. A scoped deploy uses the existing production HTML with the tested schema inserted, retaining the live asset bundle. Local lint, static build, JSON parsing and built-output-to-release schema comparison passed. Google rich-result and search indexing were not tested.
+
+Production November 8: HTTPS returned 200 and the deployed HTML matched the tested candidate; the previous page is `/var/backups/schema-static-20261108/andy.html`. The live asset bundle was retained. The static release contains the same JSON-LD as the tested build. Search indexing has not been checked.
