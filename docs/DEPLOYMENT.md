@@ -1,5 +1,7 @@
 # Deployment record
 
+Update November 7: prod's ACME HTTP-01 webroot is now `/var/www/letsencrypt`; `andy-personal-prod` was reconfigured and its renewal simulation passed. The former `/var/www/site-acme` path mentioned in the historical record below was retired. The completed prod preflight and its loopback nginx config were archived under `/var/backups/site-migration/`.
+
 ## Production migration preflight — November 7, 2026
 
 Owner: current agent. State: **Deployed; real editor-publish verification pending**. The old VPS is `staging` (Tailscale `100.79.30.68`); the new VPS is `prod` (Tailscale `100.107.40.122`). `andykumeda.com` and `kumeda.com` now point to prod through Cloudflare, with the original proxy settings retained; public HTTPS returned 200 for both and tagged requests reached the prod nginx access log. The staging nginx vhost still serves `andyk.ai`, `andyk.link`, and `andyk.xyz`; their DNS and routing were not changed during this two-domain cutover. `andyk.io` is configured in nginx but is not in the current staging certificate SAN list.
