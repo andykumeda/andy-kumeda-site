@@ -77,3 +77,7 @@ npm run build
 
 The static artifact is `dist/client/`. Sync that directory to the exact production
 target `/var/www/andy-kumeda-site`, then run `sudo nginx -t && sudo systemctl reload nginx`.
+
+## November 8 structured data
+
+The homepage includes a JSON-LD WebSite linked to a Person, based on the site's public identity and visible GitHub/LinkedIn links. A scoped deploy uses the existing production HTML with the tested schema inserted, retaining the live asset bundle. Local lint, static build, JSON parsing and built-output-to-release schema comparison passed. Google rich-result and search indexing were not tested.
